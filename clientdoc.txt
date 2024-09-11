@@ -1,0 +1,84 @@
+query getAllUsers{
+Users{
+  firstName
+  lastName
+  email
+  quotes{
+    name
+  }
+}}
+--------------------
+--------------------
+query getAllQuote{
+  quotes{
+    name
+  }
+}
+--------------------
+-------------------
+query GetUser {
+  user(id: "5656") {
+    id
+    firstName
+    lastName
+    email
+    quotes {
+      name
+      by
+    }
+  }
+}
+---------------------
+---------------------
+query getquotebyuser{
+  iquote(by:"5656"){
+    name
+    by
+  }
+}
+-------------------
+--------------------
+query getquotebyuser($userid:ID!){
+  iquote(by:$userid){
+    name
+    by
+  }
+}
+{
+    userid:"5656"
+}
+---------------------
+--------------------
+mutation{
+  SignUpDummy(firstName:"Azan",lastName:"khan",email:"azan@gmail.com",password:"2345"){
+    id
+    firstName
+    lastName
+    email
+    password
+    
+  }
+   
+  
+}
+-------------
+mutation createUser($newUser:UserInput!){
+  SignUpDummy(newUser:$newUser){
+    id
+    firstName
+    lastName
+    email
+    password
+    
+  }
+   
+  
+}
+{
+  "newUser":{
+    "firstName":"Wasi",
+    "lastName":"hxn",
+    "email":"wasi@gmail.com",
+    "password":"78787"
+  }
+}
